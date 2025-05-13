@@ -1,6 +1,6 @@
 # Game Development test learning project
 
-This game was created as a learning exercise while following the [Udemy course by Richard Allbert](https://www.udemy.com/share/10cpUB3@rzdackqOAy2lSMd3TOfIF9WFm5R-7YgXOeFuA2kQNz240SQ5hjdXAwejZpAafEHuLA==/).
+This game was created as a learning exercise while following the [Udemy course by Richard Allbert](https://www.udemy.com/course/learn-2d-game-development-godot-43-c-from-scratch/?couponCode=CP130525US).
 
 ## Disclaimer
 
