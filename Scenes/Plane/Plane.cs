@@ -7,6 +7,9 @@ public partial class Plane : CharacterBody2D
 	const float GRAVITY = 800.0f;
 	const float FLIGHT_POWER = 400.0f;
 	[Export] private AnimationPlayer _anims;
+	[Export] private AnimatedSprite2D _planeSprite;
+
+	[Signal] public delegate void OnPlaneDeathEventHandler();
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -33,6 +36,20 @@ public partial class Plane : CharacterBody2D
 			Velocity = velocity; // Set target Velocity
 			MoveAndSlide(); // Invoke MoveAndSlide to move based on Velocity
 		}
+
+		if (IsOnFloor())
+		{
+			Die();
+		}
 	}
+
+	public void Die()
+	{
+		SetPhysicsProcess(false);
+		_planeSprite.Stop();
+		EmitSignal(SignalName.OnPlaneDeath);
+		GD.Print("Plane Died");
+	}
+
 }
 

@@ -73,9 +73,10 @@ _data = {
 &"RESET": SubResource("Animation_kvaiv")
 }
 
-[node name="Plane" type="CharacterBody2D" node_paths=PackedStringArray("_anims")]
+[node name="Plane" type="CharacterBody2D" node_paths=PackedStringArray("_anims", "_planeSprite") groups=["plane"]]
 script = ExtResource("1_p0ear")
 _anims = NodePath("AnimationPlayer")
+_planeSprite = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, 0)
