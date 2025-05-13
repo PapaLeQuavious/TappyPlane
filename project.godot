@@ -19,6 +19,8 @@ config/icon="uid://be7g8i5tiruqo"
 
 window/size/viewport_width=480
 window/size/viewport_height=854
+window/size/window_width_override=655
+window/size/window_height_override=1166
 window/stretch/mode="canvas_items"
 
 [dotnet]
