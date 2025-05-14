@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dm5vricm88wmw"]
+[gd_scene load_steps=10 format=3 uid="uid://dm5vricm88wmw"]
 
 [ext_resource type="Texture2D" uid="uid://cvwpxcsj5refc" path="res://assets/background/sky.png" id="1_p8rbg"]
+[ext_resource type="Script" uid="uid://drwkvccb8l44s" path="res://Scenes/Main/Main.cs" id="1_w20t6"]
 [ext_resource type="LabelSettings" uid="uid://bohuwvpwyq7w6" path="res://Resources/Large72.tres" id="2_cmk6n"]
 [ext_resource type="LabelSettings" uid="uid://c7jp1044uq6ey" path="res://Resources/Large24_White.tres" id="3_o8wgc"]
 [ext_resource type="LabelSettings" uid="uid://cvtyf64tv7uvt" path="res://Resources/Large24.tres" id="4_i3fi7"]
@@ -45,13 +46,15 @@ _data = {
 &"RESET": SubResource("Animation_5s61s")
 }
 
-[node name="Main" type="Control"]
+[node name="Main" type="Control" node_paths=PackedStringArray("_highScoreLabel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_w20t6")
+_highScoreLabel = NodePath("MarginContainer/HighscoreValueLabel")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -112,7 +115,7 @@ vertical_alignment = 1
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_w20t6")
-volume_db = -48.0
+volume_db = -28.0
 autoplay = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -1,19 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://3pcqbko1o5s3"]
+[gd_scene load_steps=7 format=3 uid="uid://3pcqbko1o5s3"]
 
 [ext_resource type="Texture2D" uid="uid://c6pinqbfq4qbf" path="res://assets/background/rocks_2.png" id="1_gwu2e"]
 [ext_resource type="Script" uid="uid://cgs45tgj8luax" path="res://Scenes/Game/Game.cs" id="1_y3kpf"]
 [ext_resource type="PackedScene" uid="uid://b5ycamamy6m0t" path="res://Scenes/Plane/Plane.tscn" id="2_xbxml"]
 [ext_resource type="PackedScene" uid="uid://c2trggrgt0wcg" path="res://Scenes/Barrier/Barrier.tscn" id="3_xbxml"]
 [ext_resource type="PackedScene" uid="uid://w84nroy687qo" path="res://Scenes/Pipes/Pipes.tscn" id="4_ln2h6"]
+[ext_resource type="PackedScene" uid="uid://df212s813w1g0" path="res://Scenes/HUD/Hud.tscn" id="6_3k6gv"]
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("_spawnUpper", "_spawnLower", "_pipeSpawner", "_pipesHolder", "_plane")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("_spawnUpper", "_spawnLower", "_pipeSpawner", "_pipesHolder")]
 script = ExtResource("1_y3kpf")
 _spawnUpper = NodePath("SpawnUpper")
 _spawnLower = NodePath("SpawnLower")
 _pipeSpawner = NodePath("PipeSpawner")
 _pipeScene = ExtResource("4_ln2h6")
 _pipesHolder = NodePath("PipesHolder")
-_plane = NodePath("Plane")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(213, 318)
@@ -39,3 +39,7 @@ wait_time = 1.2
 autostart = true
 
 [node name="PipesHolder" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("6_3k6gv")]

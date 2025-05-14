@@ -17,6 +17,13 @@ public partial class Pipes : Node2D
 		_lowerPipe.BodyEntered += OnPipeBodyEntered;
 		_upperPipe.BodyEntered += OnPipeBodyEntered;
 		_laser.BodyEntered += OnLaserBodyEntered;
+		SignalManager.Instance.OnPlaneDeath += StopPipes;
+	}
+
+	// Called when the node exits the scene tree for the last time.
+	public override void _ExitTree()
+	{
+		SignalManager.Instance.OnPlaneDeath -= StopPipes;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,7 +35,7 @@ public partial class Pipes : Node2D
 	// Handle Plane Scoring
 	private void OnLaserBodyEntered(Node2D body)
 	{
-		GD.Print("Scored!");
+		ScoreManager.IncrementScore();
 	}
 
 	// Handle Plane Collisions
@@ -38,6 +45,7 @@ public partial class Pipes : Node2D
 		{
 			(body as Plane).Die();
 		}
+		// Can also handle the plane death with grouping like this:
 		// if (body.IsInGroup("plane"))
 		// {
 		// 	(body as Plane).Die();
@@ -48,5 +56,11 @@ public partial class Pipes : Node2D
 	private void OnScreenExited()
 	{
 		QueueFree();
+	}
+
+	// Stop pipes scrolling
+	private void StopPipes()
+	{
+		SetProcess(false);
 	}
 }
